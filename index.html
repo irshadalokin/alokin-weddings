@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Alokin Wedding Countdown</title>
-        <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script> -->
         <style>
             body {
                 font-family: 'Arial', sans-serif;
@@ -130,47 +130,47 @@
                     }
                 }, 1000);
             }
-            const defaults = {
-                spread: 60,
-                ticks: 50,
-                gravity: 0,
-                decay: 0.94,
-                startVelocity: 30,
-            };
+            // const defaults = {
+            //     spread: 60,
+            //     ticks: 50,
+            //     gravity: 0,
+            //     decay: 0.94,
+            //     startVelocity: 30,
+            // };
 
-            function shoot() {
-                confetti({
-                    ...defaults,
-                    particleCount: 30,
-                    scalar: 1.2,
-                    shapes: ["text"],
-                    shapeOptions: {
-                        text: {
-                            value: ["🌸"],
-                        },
-                    },
-                    angle: randomInRange(55, 125),
-                    spread: randomInRange(50, 70),
-                    origin: { y: Math.random(), x: Math.random() },
-                });
-                confetti({
-                    ...defaults,
-                    particleCount: 120,
-                    scalar: 8,
-                    shapes: ["text"],
-                    shapeOptions: {
-                        text: {
-                            value: ["🦋"],
-                        },
-                    },
-                    angle: randomInRange(55, 125),
-                    spread: randomInRange(50, 70),
-                    origin: { y: Math.random(), x: Math.random() },
-                });
-            }
-            setTimeout(shoot, 0);
-            setTimeout(shoot, 5000);
-            setTimeout(shoot, 12200);
+            // function shoot() {
+            //     confetti({
+            //         ...defaults,
+            //         particleCount: 30,
+            //         scalar: 1.2,
+            //         shapes: ["text"],
+            //         shapeOptions: {
+            //             text: {
+            //                 value: ["🌸"],
+            //             },
+            //         },
+            //         angle: randomInRange(55, 125),
+            //         spread: randomInRange(50, 70),
+            //         origin: { y: Math.random(), x: Math.random() },
+            //     });
+            //     confetti({
+            //         ...defaults,
+            //         particleCount: 120,
+            //         scalar: 8,
+            //         shapes: ["text"],
+            //         shapeOptions: {
+            //             text: {
+            //                 value: ["🦋"],
+            //             },
+            //         },
+            //         angle: randomInRange(55, 125),
+            //         spread: randomInRange(50, 70),
+            //         origin: { y: Math.random(), x: Math.random() },
+            //     });
+            // }
+            // setTimeout(shoot, 0);
+            // setTimeout(shoot, 5000);
+            // setTimeout(shoot, 12200);
             setTimeout(reloadPage, 15000);
         </script>
     </body>
