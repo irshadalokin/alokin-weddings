@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Multiple Wedding Countdowns</title>
+        <title>Alokin Wedding Countdown</title>
         <!-- Materialize CSS CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
@@ -95,6 +95,13 @@
         <!-- Materialize JavaScript CDN (Optional) -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
+            function reloadPage() {
+                location.reload();
+            }
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
             // Set the dates for each wedding
             const weddingDates = [
                 new Date('2023-12-15T00:00+05:30').getTime(),
@@ -133,23 +140,29 @@
                             value: ["🌸"],
                         },
                     },
+                    angle: randomInRange(55, 125),
+                    spread: randomInRange(50, 70),
+                    origin: { y: Math.random(), x: Math.random() },
                 });
                 confetti({
                     ...defaults,
-                    particleCount: 20,
-                    scalar: 2,
+                    particleCount: 120,
+                    scalar: 8,
                     shapes: ["text"],
                     shapeOptions: {
                         text: {
                             value: ["🦋"],
                         },
                     },
+                    angle: randomInRange(55, 125),
+                    spread: randomInRange(50, 70),
+                    origin: { y: Math.random(), x: Math.random() },
                 });
             }
             setTimeout(shoot, 0);
-            setTimeout(shoot, 100);
-            setTimeout(shoot, 200);
-            setTimeout(reloadPage, 30000);
+            setTimeout(shoot, 5000);
+            setTimeout(shoot, 12200);
+            setTimeout(reloadPage, 15000);
         </script>
     </body>
 </html>
