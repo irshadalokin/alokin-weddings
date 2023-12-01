@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Multiple Wedding Countdowns</title>
+        <!-- Materialize CSS CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                height: 100vh;
+                background-color: black;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+            }
+
+            /* Add a soft overlay to make the text more readable */
+            body::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.1);
+                /* Adjust the opacity and color as needed */
+            }
+
+            .wedding-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .countdown {
+                font-size: 3em;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+
+            @media only screen and (max-width: 767px) {
+                body {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(4, 1fr);
+                }
+            }
+
+            /* Custom Colors */
+            #countdown1 {
+                color: #009688;
+                /* Teal */
+            }
+
+            #countdown2 {
+                color: #ff5722;
+                /* Deep Orange */
+            }
+
+            #countdown3 {
+                color: #673ab7;
+                /* Deep Purple */
+            }
+
+            #countdown4 {
+                color: #e91e63;
+                /* Pink */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wedding-container">
+            <h2 class="white-text">Kiran P</h2>
+            <div class="countdown" id="countdown1"></div>
+        </div>
+        <div class="wedding-container">
+            <h2 class="white-text">Vishnu Prabha</h2>
+            <div class="countdown" id="countdown2"></div>
+        </div>
+        <div class="wedding-container">
+            <h2 class="white-text">Ananthu</h2>
+            <div class="countdown" id="countdown3"></div>
+        </div>
+        <div class="wedding-container">
+            <h2 class="white-text">Sreekutty</h2>
+            <div class="countdown" id="countdown4">എന്നാണോ ആവൊ </div>
+        </div>
+        <!-- Materialize JavaScript CDN (Optional) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            // Set the dates for each wedding
+            const weddingDates = [
+                new Date('2023-12-15T00:00+05:30').getTime(),
+                new Date('2023-12-28T00:30+05:30').getTime(),
+                new Date('2024-01-21T00:00+05:30').getTime(),
+            ];
+            // Update the countdowns for each wedding
+            for (let i = 0; i < weddingDates.length; i++) {
+                const countdownId = `countdown${i + 1}`;
+                setInterval(function() {
+                    const currentDate = new Date().getTime();
+                    const remainingTime = weddingDates[i] - currentDate;
+                    const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+                    document.getElementById(countdownId).innerHTML = `${days} days`;
+                    if (remainingTime < 0) {
+                        document.getElementById(countdownId).innerHTML = "The wedding is here!";
+                    }
+                }, 1000);
+            }
+            const defaults = {
+                spread: 60,
+                ticks: 50,
+                gravity: 0,
+                decay: 0.94,
+                startVelocity: 30,
+            };
+
+            function shoot() {
+                confetti({
+                    ...defaults,
+                    particleCount: 30,
+                    scalar: 1.2,
+                    shapes: ["text"],
+                    shapeOptions: {
+                        text: {
+                            value: ["🌸"],
+                        },
+                    },
+                });
+                confetti({
+                    ...defaults,
+                    particleCount: 20,
+                    scalar: 2,
+                    shapes: ["text"],
+                    shapeOptions: {
+                        text: {
+                            value: ["🦋"],
+                        },
+                    },
+                });
+            }
+            setTimeout(shoot, 0);
+            setTimeout(shoot, 100);
+            setTimeout(shoot, 200);
+            setTimeout(reloadPage, 30000);
+        </script>
+    </body>
+</html>
